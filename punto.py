@@ -22,10 +22,20 @@ class Punto():
         elif self.x != 0 and self.y == 0:
             return "Sobre el eje X"
     def vector(self, pto2):
-        return f'({self.x - pto2.x}, {self.y - pto2.y})'
+        return "El vector es: " f'({self.x - pto2.x}, {self.y - pto2.y})'
     def dist(self, pto2):
-        return f'{math.sqrt(((self.x - pto2.x)**2 + (self.y - pto2.y)**2))}'
-
+        return "La distacia es: "f'{math.sqrt(((self.x - pto2.x)**2 + (self.y - pto2.y)**2))}'
+class Rectangulo():
+    def __init__(self, pto1, pto2):
+        self.pto1 = pto1
+        self.pto2 = pto2
+    def base(self):
+        return "La base del rectángulo es: " f'{abs(self.pto2.x - self.pto1.x)}'
+    def altura(self):
+        return "La altura del rectángulo es: " f'{abs(self.pto2.y - self.pto1.y)}'
+    def area(self):
+        return "El area del rectángulo es: "f'{(self.pto2.x - self.pto1.x) * (self.pto2.y - self.pto1.y)}'
+    
 
 def main():
     A = Punto(2, 3)
@@ -49,7 +59,10 @@ def main():
         print("B esta mas cerca del origen que A y C")
     elif C.dist(D) < A.dist(D) and C.dist(D) < B.dist(D):
         print("C esta mas cerca del origen que A y B")
-    
+    rectangulo = Rectangulo(B, A)
+    print(rectangulo.base())
+    print(rectangulo.altura())
+    print(rectangulo.area())
 if __name__ == '__main__':
     main()
 
